@@ -1,7 +1,9 @@
 // @flow
 
 import React from 'react'
+import MessageForm from '../message-form'
 
-const HomePage = () => <p>Home</p>
+const HomePage = () =>
+  <MessageForm />
 
 export default HomePage
