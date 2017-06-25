@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import { BrowserRouter } from 'react-router-dom'
 import thunkMiddleware from 'redux-thunk'
 
@@ -18,7 +19,10 @@ import { isProd } from '../shared/util'
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
-const store = createStore(combineReducers({ hello: helloReducer }),
+const store = createStore(combineReducers({
+  hello: helloReducer,
+  form: formReducer,
+}),
   composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
